@@ -68,9 +68,17 @@ var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? En
     }
   }
 };
-window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ) );
-if (playerHealth > 0) {
-    for(var i = 0; i < playerName.length; i++){
+//fight();
+
+// function to start a new agme
+var startGame = function() {
+    // reset player status
+    playerHealth = 100;
+    playerAttack = 10;
+    playerMoney = 10;
+for(var i = 0; i < enemyNames.length; i++){
+    // if the player is still alive, keep fighting
+    if (playerHealth > 0) {
     // remind the player what round they are in, remember that arrays starts at 0 so remember to add 1
     window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ));
     // pick new namne to fight based on the index of the enemyNames array
@@ -82,11 +90,36 @@ if (playerHealth > 0) {
     // pass the pickedEnemyName varuiable's value into the fight function, where it will assume the value of the enemyName parameter
     fight(pickedEnemyName);
     } 
-} else {
-    window.alert( " You ahve lost your robot in battle! Game over!");
-    
+    // if player isn't alive, stop the game
+ else {
+    window.alert( " You have lost your robot in battle! Game over!");
+    break;
+ }  
 } 
+endGame();
+};
+// funtion to end the entire game
+var endGame = function(){
+    // if player is still alive, player wins!
+    if(playerHealth > 0){
+        window.alert("Great job, you've survived the agme! You now have a score of " + palyerMoney + ".");
+    } else {
+    window.alert("you've lost your robot in battle.");
+  }
+}
+//ask player if they've like to play again
+
+var playAgainConfirm = window.confirm("Would you like to play again?");
+
+if(playAgainConfirm) {
+    // restart the agme
+    startGame();
+}
+else {
+    window.alert("Tahnk you for playing Robto Gladiators. Come back soon!");
+}
 
 
 
-//fight();
+
+
