@@ -116,7 +116,7 @@ var fight = function(enemyName) {
     }
     // if player isn't alive, stop the game
     else {
-      window.alert('You have lost your robot in battle! Game Over!');
+      window.alert('You have lost your robot in the battle! Game Over!');
       break;
     }
   }
@@ -125,10 +125,10 @@ var fight = function(enemyName) {
 
 var endGame = function() {
     // if palyer is still alive, player wins!
-    window.alert("The game has now ended. let's see how you did!");
+    window.alert("The game has now ended. Let's see how you did!");
     // if player is still alive, player wins!
     if (playerHealth > 0){
-    window.alert("Great job, you've survived the game! You ahve now a score of" + playerMoney + ".");
+    window.alert("Great job, you've survived the game! You have now a score of " + playerMoney + ".");
 } else {
     window.alert("You've lost your robot in the battle!");
     } 
@@ -138,7 +138,7 @@ if (playAgainConfirm){
     startGame();
 }
 else {
-    window.alert("Thank you for palying the Robot Gladiators! Come back soon!");
+    window.alert("Thank you for playing the Robot Gladiators! Come back soon!");
   }
 };
 // go to shop between battle function
