@@ -23,9 +23,8 @@ var enemyHealth = 50;
 var enemyAttack = 12;
 
 var fight = function(enemyName){
-    while(playerHealth > 0 && enemyHealth > 0) {
+while(playerHealth > 0 && enemyHealth > 0) {
     // Alert players that they are starting
-    window.alert("Welcome to Robot Gladiators");
 var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
  if (promptFight === "skip" || promptFight === "SKIP"){ 
     // confir player wants to skip
@@ -69,11 +68,25 @@ var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? En
     }
   }
 };
-
-for(var i = 0; i < enemyNames.length; i++) {
+window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ) );
+if (playerHealth > 0) {
+    for(var i = 0; i < playerName.length; i++){
+    // remind the player what round they are in, remember that arrays starts at 0 so remember to add 1
+    window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ));
+    // pick new namne to fight based on the index of the enemyNames array
     var pickedEnemyName = enemyNames[i];
+    // reset enemyHealth before starting new fight
     enemyHealth = 50;
+    // used debugger to apuse script form running an dcheck what's going on athe moment in the code
+    debugger;
+    // pass the pickedEnemyName varuiable's value into the fight function, where it will assume the value of the enemyName parameter
     fight(pickedEnemyName);
+    } 
+} else {
+    window.alert( " You ahve lost your robot in battle! Game over!");
+    
+} 
 
-}
+
+
 //fight();
