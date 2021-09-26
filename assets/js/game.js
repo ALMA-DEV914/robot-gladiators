@@ -86,6 +86,7 @@ var fight = function(enemyName) {
       playerHealth = 100;
       playerAttack = 10;
       playerMoney = 10;
+      // fight each enemy robot by looping over them and fighting them one at a time
   for (var i = 0; i < enemyNames.length; i++) {
     // if player is still alive, keep fighting
     if (playerHealth > 0) {
@@ -112,7 +113,7 @@ var fight = function(enemyName) {
           shop();
           }
       }
-    
+    }
     // if player isn't alive, stop the game
     else {
       window.alert('You have lost your robot in battle! Game Over!');
@@ -124,33 +125,27 @@ var fight = function(enemyName) {
 
 var endGame = function() {
     // if palyer is still alive, player wins!
+    window.alert("The game has now ended. let's see how you did!");
+    // if player is still alive, player wins!
     if (playerHealth > 0){
     window.alert("Great job, you've survived the game! You ahve now a score of" + playerMoney + ".");
-}
-else {
-    window.alert("The game has ended. let's see how you did!");
-     } 
-    
-}
+} else {
+    window.alert("You've lost your robot in the battle!");
+    } 
+    // ask player if they'd like to play again
 var playAgainConfirm = window.confirm("Would you like to play again?");
-if (playAgainConfirm) {
-    var shop = function(){
-        // ask player what they'd like to do
-        var shopOptionPromt = window.prompt("Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', 'LEAVE', to make a choice.");
-    };
-  
-     startGame();
-
+if (playAgainConfirm){
+    startGame();
 }
 else {
     window.alert("Thank you for palying the Robot Gladiators! Come back soon!");
   }
-
-}
+};
+// go to shop between battle function
 var shop = function(){
     // ask player what they'd like to do
     var shopOptionPromt = window.prompt("Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', 'LEAVE', to make a choice.");
-
+// use switch case to carry out function
 switch (shopOptionPromt) {
     case "REFILL":
     case "refill":
@@ -189,6 +184,7 @@ switch (shopOptionPromt) {
         shop();
         break;
 }
-}
-shop();
+};
+// start first agme when page reload
+startGame();
 
