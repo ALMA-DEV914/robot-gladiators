@@ -195,11 +195,12 @@ else {
 // go to shop between battle function
 var shop = function(){
     // ask player what they'd like to do
-    var shopOptionPromt = window.prompt("Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', 'LEAVE', to make a choice.");
+    var shopOptionPromt = window.prompt("Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, 3 for LEAVE, to make a choice.");
+
+    shopOptionPromt = parseInt(shopOptionPromt);
 // use switch case to carry out function
 switch (shopOptionPromt) {
-    case "REFILL":
-    case "refill":
+    case 1:
         playerInfo.refillhealth();
        /* if (playerInfo.money >= 7) {
         window.alert("Refilling player's health by 20 for 7 dollars");
@@ -211,8 +212,8 @@ switch (shopOptionPromt) {
             window.alert("You don't have enough money");
         } */
         break;
-    case "UPGRADE":
-    case "upgrade":
+    
+    case 2:
         playerInfo.upgradeAttack();
         /*if (playerInfo.money >= 7) {
         window.alert("Upgrading player's attack by 6 for 7 dollars.");
@@ -224,8 +225,8 @@ switch (shopOptionPromt) {
             window.alert("You don't have enough money");
         } */
         break;
-    case "LEAVE":
-    case "leave":
+   
+    case 3:
         window.alert("Leaving the store");
 
         // do nohting, so function will end
